@@ -10,7 +10,7 @@
         "oat",
         "computer-based-assessment"
     ],
-    "name": "oat-sa/extension-tao-testtaker",
+    "name": "openthinklabs/extension-tao-testtaker",
     "description": "extension to manage testtakers ",
     "type": "tao-extension",
     "authors": [
