@@ -4,6 +4,8 @@
         "issues": "http://forge.taotesting.com"
     },
     "homepage": "http://www.taotesting.com",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,    
     "license": "GPL-2.0-only",
     "keywords": [
         "tao",
@@ -55,10 +57,47 @@
             "oat\\taoTestTaker\\": ""
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/oatbox-extension-installer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/tao-core.git"
+        },                
+        {
+          "type": "vcs",
+          "url": "git@github.com:openthinklabs/generis.git"
+        },
+        {
+          "type": "vcs",
+          "url": "git@github.com:openthinklabs/extension-tao-backoffice.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/lib-generis-search.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/jig.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/composer-npm-bridge.git"
+        }                        
+    ],	        
     "require": {
-        "oat-sa/oatbox-extension-installer": "~1.1||dev-master",
-        "oat-sa/tao-core": "48.75.0.6",
-        "oat-sa/generis": "15.13.1.4",
-        "oat-sa/extension-tao-backoffice": ">=6.0.0"
+        "openthinklabs/oatbox-extension-installer": "~1.1||dev-master",
+        "openthinklabs/tao-core": "48.75.0.6",
+        "openthinklabs/generis": "15.13.1.4",
+        "openthinklabs/extension-tao-backoffice": ">=6.0.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "openthinklabs/oatbox-extension-installer": true,
+            "openthinklabs/composer-npm-bridge": true
+        }
     }
 }
