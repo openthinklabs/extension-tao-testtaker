@@ -55,28 +55,10 @@
             "oat\\taoTestTaker\\": ""
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:openthinklabs/oatbox-extension-installer.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:openthinklabs/tao-core.git"
-        },                
-        {
-          "type": "vcs",
-          "url": "git@github.com:openthinklabs/generis.git"
-        },
-        {
-          "type": "vcs",
-          "url": "git@github.com:openthinklabs/extension-tao-backoffice.git"
-        }
-    ],	        
     "require": {
-        "openthinklabs/oatbox-extension-installer": "~1.1||dev-master",
-        "openthinklabs/tao-core": ">=48.45.0",
-        "openthinklabs/generis": ">=14.0.0",
-        "openthinklabs/extension-tao-backoffice": ">=6.0.0"
+        "oat-sa/oatbox-extension-installer": "~1.1||dev-master",
+        "oat-sa/tao-core": "48.75.0.6",
+        "oat-sa/generis": "15.13.1.4",
+        "oat-sa/extension-tao-backoffice": ">=6.0.0"
     }
 }
