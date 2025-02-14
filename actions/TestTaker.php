@@ -15,9 +15,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
- *               2002-2008 (update and modification) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
- *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
+ * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg
+ *                         (under the project TAO & TAO2);
+ *               2002-2008 (update and modification) Public Research Centre Henri Tudor & University of Luxembourg
+ *                         (under the project TAO & TAO2);
+ *               2009-2012 (update and modification) Public Research Centre Henri Tudor
+ *                         (under the project TAO-SUSTAIN & TAO-DEV);
  *               2013-2014 (update and modification) Open Assessment Technologies SA
  */
 
@@ -36,6 +39,8 @@ use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\routing\AnnotationReader\security;
+use oat\taoDelivery\model\AssignmentService;
+use oat\taoDeliveryRdf\model\GroupAssignment;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -135,7 +140,9 @@ class TestTaker extends tao_actions_SaSModule
         $subject = $this->getCurrentInstance();
 
         $addMode = false;
-        $login = (string) $subject->getOnePropertyValue(new core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN));
+        $login = (string) $subject->getOnePropertyValue(
+            new core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN)
+        );
         if (empty($login)) {
             $addMode = true;
             $this->setData('loginUri', tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN));
@@ -224,7 +231,11 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
+        $assignmentService = $this->getServiceLocator()->get(AssignmentService::SERVICE_ID);
+        if (
+            common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups') &&
+            get_class($assignmentService) == GroupAssignment::class
+        ) {
             $groupForm = GroupForm::returnGroupTreeFormObject($subject);
 
             $groupForm->setData('saveUrl', _url('setValues', 'TestTakerGenerisTree', 'taoTestTaker'));
