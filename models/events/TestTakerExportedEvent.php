@@ -28,4 +28,5 @@ namespace oat\taoTestTaker\models\events;
  */
 class TestTakerExportedEvent extends AbstractTestTakerEvent
 {
+
 }

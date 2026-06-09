@@ -34,6 +34,7 @@ use tao_helpers_form_GenerisTreeForm;
  */
 class TestTakerGenerisTree extends tao_actions_GenerisTree
 {
+
     /**
      * @see tao_actions_GenerisTree::setValues()
      */

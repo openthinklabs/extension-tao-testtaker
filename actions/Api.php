@@ -34,6 +34,7 @@ use oat\taoTestTaker\models\CrudService;
  */
 class Api extends \tao_actions_CommonRestModule
 {
+
     /**
      * Api constructor.
      * @security("hide");
@@ -43,7 +44,7 @@ class Api extends \tao_actions_CommonRestModule
         parent::__construct();
         $this->service = CrudService::singleton();
     }
-
+    
     /**
      * Optionnaly a specific rest controller may declare
      * aliases for parameters used for the rest communication

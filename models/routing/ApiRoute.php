@@ -24,7 +24,7 @@ use oat\tao\model\routing\AbstractApiRoute;
 
 class ApiRoute extends AbstractApiRoute
 {
-    public const REST_CONTROLLER_PREFIX = 'oat\\taoTestTaker\\actions\\Rest';
+    const REST_CONTROLLER_PREFIX = 'oat\\taoTestTaker\\actions\\Rest';
 
     /**
      * @inheritdoc
