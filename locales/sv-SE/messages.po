@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: TAO 3.4.0-sprint138\n"
+"PO-Revision-Date: 2020-09-25T08:32:36\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sv-SE\n"
@@ -13,12 +13,31 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid " . \common_Utils::toPHPVariableString($this->getDescription()) . "
+msgstr ""
+
+msgid " . \common_Utils::toPHPVariableString($this->getLabel()) . "
+msgstr ""
+
+#, tao-public
+msgid "Authoring"
+msgstr ""
+
+#, tao-public
+msgid "Combine a selection of items into tests."
+msgstr ""
+
+#, tao-public
+msgid "Copy To"
+msgstr ""
+
 #, tao-public
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Da bort"
 
-msgid "Edit subject"
-msgstr "Redigera testtagare"
+#, tao-public
+msgid "Duplicate"
+msgstr "Dublett"
 
 #, tao-public
 msgid "Export"
@@ -36,8 +55,8 @@ msgid "Manage Schema"
 msgstr ""
 
 #, tao-public
-msgid "Manage test takers"
-msgstr "Hantera testtagare"
+msgid "Manage tests"
+msgstr "Hantera tester"
 
 #, tao-public
 msgid "Move"
@@ -52,34 +71,55 @@ msgid "New class"
 msgstr "Ny klass"
 
 #, tao-public
-msgid "New test-taker"
-msgstr "Ny testtagare"
+msgid "New test"
+msgstr "Nytt test"
+
+#, tao-public
+msgid "Preview"
+msgstr ""
 
 #, tao-public
 msgid "Properties"
 msgstr ""
 
-#, tao-public
-msgid "Record and manage test takers."
+msgid "Security plugins"
 msgstr ""
 
-msgid "Test taker saved"
-msgstr "Testtagare sparad"
-
-msgid "Test takers"
-msgstr "Testtagare"
-
-#, tao-public
-msgid "Test takers library"
-msgstr "Testtagararkiv"
-
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "TEsttagare kan knytas till placeringar enligt det relevanta utvärderingssammanhanget (human resource management, utbildning etc.)."
-
-#, tao-public
-msgid "Test-takers"
+msgid "Set of plugins with \'security\' category"
 msgstr ""
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Testtagarmodulen låter dig registrera och hantera testtagare"
+msgid "Test Preview is not installed, please contact to your administrator."
+msgstr ""
+
+msgid "Test properties"
+msgstr "Testegenskaper"
+
+msgid "Test saved"
+msgstr "Test sparat"
+
+msgid "Test was successfully deleted."
+msgstr ""
+
+#, tao-public
+msgid "Tests"
+msgstr "Tester"
+
+#, tao-public
+msgid "Tests library"
+msgstr "Testarkiv"
+
+msgid "The Test mode (sequencing, scoring, cumulating, etc.) and layout are also configured here."
+msgstr "Testmetoden (ordningsföljd, poängräkning, ihopsamling etc.) och layouten byggs även upp här."
+
+msgid "The Tests module allows to combine a selection of Items to a Test."
+msgstr "Testmodulen låter dig kombinera ett urval av frågor till ett test"
+
+msgid "Unable to delete test."
+msgstr ""
+
+msgid "Unable to process your request"
+msgstr ""
+
+msgid "You checked out this test %2s ago"
+msgstr ""
 

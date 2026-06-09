@@ -27,14 +27,22 @@ module.exports = function(grunt) {
 
     grunt.config.merge({
         bundle : {
-            taotesttaker : {
+            taotests : {
                 options : {
-                    extension : 'taoTestTaker',
+                    extension : 'taoTests',
                     outputDir : 'loader',
+                    paths: require('./paths.json'),
+                    dependencies: ['taoItems'],
                     bundles : [{
-                        name : 'taoTestTaker',
+                        name : 'taoTests',
                         default : true,
                         babel : true
+                    }, {
+                        name : 'taoTestsRunner',
+                        babel : true,
+                        include : [
+                            'taoTests/runner/**/*'
+                        ]
                     }]
                 }
             }
@@ -42,5 +50,5 @@ module.exports = function(grunt) {
     });
 
     // bundle task
-    grunt.registerTask('taotesttakerbundle', ['bundle:taotesttaker']);
+    grunt.registerTask('taotestsbundle', ['bundle:taotests']);
 };

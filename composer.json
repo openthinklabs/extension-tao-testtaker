@@ -1,18 +1,5 @@
 {
-    "support": {
-        "forum": "http://forum.taotesting.com",
-        "issues": "http://forge.taotesting.com"
-    },
-    "homepage": "http://www.taotesting.com",
-    "license": "GPL-2.0-only",
-    "keywords": [
-        "tao",
-        "oat",
-        "computer-based-assessment"
-    ],
-    "name": "openthinklabs/extension-tao-testtaker",
-    "description": "extension to manage testtakers ",
-    "type": "tao-extension",
+    "name": "openthinklabs/extension-tao-test",
     "authors": [
         {
             "name": "Open Assessment Technologies S.A.",
@@ -47,12 +34,24 @@
             "role": "Developer"
         }
     ],
-    "extra": {
-        "tao-extension-name": "taoTestTaker"
+    "description": "extension to manage tests",
+    "support": {
+        "forum": "https://forum.taocloud.org/"
     },
-    "autoload": {
-        "psr-4": {
-            "oat\\taoTestTaker\\": ""
+    "homepage": "http://www.taotesting.com",
+    "license": [
+        "GPL-2.0-only"
+    ],
+    "keywords": [
+        "tao",
+        "oat",
+        "computer-based-assessment"
+    ],
+    "type": "tao-extension",
+    "extra": {
+        "tao-extension-name": "taoTests",
+        "npm-bridge": {
+            "arguments": ["--prefix", "views"]
         }
     },
     "repositories": [
@@ -62,15 +61,19 @@
         },
         {
             "type": "vcs",
-            "url": "git@github.com:openthinklabs/tao-core.git"
-        },                
-        {
-          "type": "vcs",
-          "url": "git@github.com:openthinklabs/generis.git"
+            "url": "git@github.com:openthinklabs/generis.git"
         },
         {
-          "type": "vcs",
-          "url": "git@github.com:openthinklabs/extension-tao-backoffice.git"
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/tao-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/extension-tao-backoffice.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:openthinklabs/extension-tao-item.git"
         },
         {
             "type": "vcs",
@@ -83,18 +86,26 @@
         {
             "type": "vcs",
             "url": "git@github.com:openthinklabs/composer-npm-bridge.git"
-        }                        
-    ],	        
+        }                                                     
+    ],        
     "require": {
         "openthinklabs/oatbox-extension-installer": "1.2.2",
-        "openthinklabs/tao-core": "~50.11.1.3",
         "openthinklabs/generis": "~15.19.2.1",
-        "openthinklabs/extension-tao-backoffice": "~6.10.1.1" 
+        "openthinklabs/tao-core": "~50.11.1.3",
+        "openthinklabs/extension-tao-backoffice": "~6.10.1.1",
+        "openthinklabs/extension-tao-item": "~11.29.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "oat\\taoTests\\models\\": "models/classes/",
+            "oat\\taoTests\\test\\": "test",
+            "oat\\taoTests\\scripts\\": "scripts"
+        }
     },
     "config": {
         "allow-plugins": {
-            "openthinklabs/oatbox-extension-installer": true,
             "composer/package-versions-deprecated": true,
+            "openthinklabs/oatbox-extension-installer": true,
             "openthinklabs/composer-npm-bridge": true
         }
     }

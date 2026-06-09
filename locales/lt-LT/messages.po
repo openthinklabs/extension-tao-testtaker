@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.4.0-sprint112\n"
-"PO-Revision-Date: 2019-10-09T09:02:30\n"
+"Project-Id-Version: TAO 3.4.0-sprint138\n"
+"PO-Revision-Date: 2020-09-25T08:32:36\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: lt-LT\n"
@@ -13,12 +13,31 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid " . \common_Utils::toPHPVariableString($this->getDescription()) . "
+msgstr ""
+
+msgid " . \common_Utils::toPHPVariableString($this->getLabel()) . "
+msgstr ""
+
+#, tao-public
+msgid "Authoring"
+msgstr "Tvarkymas"
+
+#, tao-public
+msgid "Combine a selection of items into tests."
+msgstr "Apjunkite pasirinktus klausimus į testus."
+
+#, tao-public
+msgid "Copy To"
+msgstr "Kopijuoti Į"
+
 #, tao-public
 msgid "Delete"
 msgstr "Ištrinti"
 
-msgid "Edit subject"
-msgstr "Edit test-taker"
+#, tao-public
+msgid "Duplicate"
+msgstr "Kurti kopiją"
 
 #, tao-public
 msgid "Export"
@@ -36,8 +55,8 @@ msgid "Manage Schema"
 msgstr "Tvarkyti Schemą"
 
 #, tao-public
-msgid "Manage test takers"
-msgstr "Tvarkyti testo laikytojus"
+msgid "Manage tests"
+msgstr "Tvarkyti testus"
 
 #, tao-public
 msgid "Move"
@@ -52,34 +71,55 @@ msgid "New class"
 msgstr "Nauja klasė"
 
 #, tao-public
-msgid "New test-taker"
-msgstr "Naujas testo laikytojas"
+msgid "New test"
+msgstr "Naujas testas"
+
+#, tao-public
+msgid "Preview"
+msgstr ""
 
 #, tao-public
 msgid "Properties"
 msgstr "Savybės"
 
+msgid "Security plugins"
+msgstr "Saugumo plėtiniai"
+
+msgid "Set of plugins with \'security\' category"
+msgstr ""
+
+msgid "Test Preview is not installed, please contact to your administrator."
+msgstr ""
+
+msgid "Test properties"
+msgstr "Testo savybės"
+
+msgid "Test saved"
+msgstr "Testas išsaugotas"
+
+msgid "Test was successfully deleted."
+msgstr "Testas sėkmingai pašalintas"
+
 #, tao-public
-msgid "Record and manage test takers."
-msgstr "Record and manage test-takers."
-
-msgid "Test taker saved"
-msgstr "Test-taker saved"
-
-msgid "Test takers"
-msgstr "Testo laikytojai"
+msgid "Tests"
+msgstr "Testai"
 
 #, tao-public
-msgid "Test takers library"
-msgstr "Test-takers library"
+msgid "Tests library"
+msgstr "Testų biblioteka"
 
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Testo laikytojai gali būti priskirti prie rinkinių, pagal atitinkamą įvertinimo kontekstą (Žmogiškųjų resursų valdyme, edukacijai, edumetrikos stebėjimui, t.t.)"
+msgid "The Test mode (sequencing, scoring, cumulating, etc.) and layout are also configured here."
+msgstr "Čia taip pat konfigūruojami testo režimas (klausimų eiliškumas, vertinimas, taškų sumavimas) ir testo išdėstymas."
 
-#, tao-public
-msgid "Test-takers"
-msgstr "Testo laikytojai"
+msgid "The Tests module allows to combine a selection of Items to a Test."
+msgstr "Testo modulis leidžia apjunkti pasirinktus klausimus į testus."
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Testo laikytojų modulis leidžia įrašyti ir tvarkyti testo laikytojus."
+msgid "Unable to delete test."
+msgstr ""
+
+msgid "Unable to process your request"
+msgstr ""
+
+msgid "You checked out this test %2s ago"
+msgstr "Jūs peržiūrėjote šį testą prieš %2s"
 

@@ -1,4 +1,4 @@
-extension-tao-testtaker
-=======================
+extension-tao-test
+==================
 
-extension to manage test takers for TAO
+extension to manage tests for TAO

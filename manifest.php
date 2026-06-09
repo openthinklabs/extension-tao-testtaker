@@ -1,6 +1,5 @@
 <?php
-
-/**
+/*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -18,7 +17,7 @@
  * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
  *               2008-2010 (update and modification) Deutsche Institut für Internationale Pädagogische Forschung (under the project TAO-TRANSFER);
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
- *
+ *               2013-     (update and modification) Open Assessment Technologies SA;
  */
 
 /*
@@ -27,58 +26,63 @@
  *
  */
 
-use oat\taoTestTaker\models\routing\ApiRoute;
-use oat\taoTestTaker\models\TestTakerService;
-use oat\taoTestTaker\scripts\install\SetupConfig;
-use oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter;
+use oat\tao\model\user\TaoRoles;
+use oat\taoTests\scripts\update\Updater;
+use oat\taoTests\scripts\install\SetupProvider;
+use oat\taoTests\scripts\install\RegisterFrontendPaths;
+use oat\taoTests\scripts\install\RegisterTestPluginService;
+use oat\taoTests\scripts\install\RegisterTestProviderService;
+use oat\taoTests\scripts\install\RegisterTestPreviewerRegistryService;
 
-$extpath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-$taopath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'tao' . DIRECTORY_SEPARATOR;
+$extpath = __DIR__ . DIRECTORY_SEPARATOR;
 
 return [
-    'name' => 'taoTestTaker',
-    'label' => 'Test-taker core extension',
-    'description' => 'TAO TestTaker extension',
+    'name' => 'taoTests',
+    'label' => 'Test core extension',
+    'description' => 'TAO Tests extension contains the abstraction of the test-runners, but requires an implementation in order to be able to run tests',
     'license' => 'GPL-2.0',
     'author' => 'Open Assessment Technologies, CRP Henri Tudor',
     'models' => [
-        'http://www.tao.lu/Ontologies/TAOSubject.rdf'
+        'http://www.tao.lu/Ontologies/TAOTest.rdf',
     ],
     'install' => [
         'rdf' => [
-                dirname(__FILE__) . '/models/ontology/taosubject.rdf'
+            __DIR__ . '/models/ontology/taotest.rdf',
         ],
         'php' => [
-            SetupConfig::class,
-            SetupTesttakerCsvImporter::class,
-        ]
+            RegisterTestPluginService::class,
+            RegisterTestProviderService::class,
+            RegisterFrontendPaths::class,
+            RegisterTestPreviewerRegistryService::class,
+            SetupProvider::class,
+        ],
     ],
-    'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
-    'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
+    'update' => Updater::class,
+    'managementRole' => 'http://www.tao.lu/Ontologies/TAOTest.rdf#TestsManagerRole',
     'acl' => [
-        ['grant', TestTakerService::ROLE_SUBJECT_MANAGER, ['ext' => 'taoTestTaker']]
+        ['grant', 'http://www.tao.lu/Ontologies/TAOTest.rdf#TestsManagerRole', ['ext' => 'taoTests']],
+        ['grant', TaoRoles::REST_PUBLISHER, ['ext' => 'taoTests', 'mod' => 'RestTests']],
     ],
-    'routes' => [
-        '/taoTestTaker/api' => ['class' => ApiRoute::class],
-        '/taoTestTaker' => 'oat\\taoTestTaker\\actions'
+    'optimizableClasses' => [
+        'http://www.tao.lu/Ontologies/TAOTest.rdf#Test',
     ],
     'constants' => [
         # actions directory
-        "DIR_ACTIONS"           => $extpath . "actions" . DIRECTORY_SEPARATOR,
+        "DIR_ACTIONS" => $extpath . "actions" . DIRECTORY_SEPARATOR,
 
         # views directory
-        "DIR_VIEWS"             => $extpath . "views" . DIRECTORY_SEPARATOR,
+        "DIR_VIEWS" => $extpath . "views" . DIRECTORY_SEPARATOR,
 
         # default module name
-        'DEFAULT_MODULE_NAME'   => 'TestTaker',
+        'DEFAULT_MODULE_NAME' => 'Tests',
 
         #default action name
-        'DEFAULT_ACTION_NAME'   => 'index',
+        'DEFAULT_ACTION_NAME' => 'index',
 
         #BASE PATH: the root path in the file system (usually the document root)
-        'BASE_PATH'             => $extpath,
+        'BASE_PATH' => $extpath,
 
         #BASE URL (usually the domain root)
-        'BASE_URL'              => ROOT_URL . 'taoTestTaker/',
-    ]
+        'BASE_URL' => ROOT_URL . 'taoTests/',
+    ],
 ];

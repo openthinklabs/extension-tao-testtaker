@@ -1,3 +1,3 @@
 export default {
-    testTakers: '/tao/Main/index?structure=TestTaker&ext=taoTestTaker&section=manage_test_takers'
+    tests: '/tao/Main/index?structure=tests&ext=taoTests&section=manage_tests'
 };

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: TAO 3.4.0-sprint138\n"
+"PO-Revision-Date: 2020-09-25T08:32:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: it-IT\n"
@@ -13,12 +13,31 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid " . \common_Utils::toPHPVariableString($this->getDescription()) . "
+msgstr ""
+
+msgid " . \common_Utils::toPHPVariableString($this->getLabel()) . "
+msgstr ""
+
+#, tao-public
+msgid "Authoring"
+msgstr "Authoring"
+
+#, tao-public
+msgid "Combine a selection of items into tests."
+msgstr "Combina una selezione di item nel test"
+
+#, tao-public
+msgid "Copy To"
+msgstr ""
+
 #, tao-public
 msgid "Delete"
-msgstr "Elimina"
+msgstr "Cancella"
 
-msgid "Edit subject"
-msgstr "Modifica soggetto"
+#, tao-public
+msgid "Duplicate"
+msgstr "Duplica"
 
 #, tao-public
 msgid "Export"
@@ -36,8 +55,8 @@ msgid "Manage Schema"
 msgstr ""
 
 #, tao-public
-msgid "Manage test takers"
-msgstr "Gestisci i partecipanti al test"
+msgid "Manage tests"
+msgstr "Gestisci i test"
 
 #, tao-public
 msgid "Move"
@@ -52,34 +71,55 @@ msgid "New class"
 msgstr "Nuova classe"
 
 #, tao-public
-msgid "New test-taker"
-msgstr "Nuovo partecipante"
+msgid "New test"
+msgstr "Nuovo test"
+
+#, tao-public
+msgid "Preview"
+msgstr ""
 
 #, tao-public
 msgid "Properties"
 msgstr "Proprietà"
 
+msgid "Security plugins"
+msgstr ""
+
+msgid "Set of plugins with \'security\' category"
+msgstr ""
+
+msgid "Test Preview is not installed, please contact to your administrator."
+msgstr ""
+
+msgid "Test properties"
+msgstr "Proprietà testo"
+
+msgid "Test saved"
+msgstr "Test salvato"
+
+msgid "Test was successfully deleted."
+msgstr ""
+
 #, tao-public
-msgid "Record and manage test takers."
-msgstr "Registra e gestisci i partecipanti"
-
-msgid "Test taker saved"
-msgstr "Partecipante salvato"
-
-msgid "Test takers"
-msgstr "Partecipanti"
+msgid "Tests"
+msgstr "Test"
 
 #, tao-public
-msgid "Test takers library"
-msgstr "Biblioteca dei partecipanti"
+msgid "Tests library"
+msgstr "Biblioteca di test"
 
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "I partecipanti possono essere assegnati ad insiemi basati su rilevante contenuto di valutazione (gestione di risorse umane, educazione, ecc)."
+msgid "The Test mode (sequencing, scoring, cumulating, etc.) and layout are also configured here."
+msgstr "La modalita' test (sequenza, punteggio, cumulo, ecc.) e il layout sono anche configurati qui."
 
-#, tao-public
-msgid "Test-takers"
-msgstr "Partecipanti"
+msgid "The Tests module allows to combine a selection of Items to a Test."
+msgstr "La modalita' test ti consente di mettere insieme una selezione di item nel test"
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Il modulo dei partecipanti ti consente di registrare e gestire   partecipanti"
+msgid "Unable to delete test."
+msgstr ""
+
+msgid "Unable to process your request"
+msgstr ""
+
+msgid "You checked out this test %2s ago"
+msgstr "Hai controllato questo test %2s "
 

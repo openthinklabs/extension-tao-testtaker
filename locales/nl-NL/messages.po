@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.4.0-sprint124\n"
-"PO-Revision-Date: 2020-03-20T11:16:56\n"
+"Project-Id-Version: TAO 3.4.0-sprint138\n"
+"PO-Revision-Date: 2020-09-25T08:32:36\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nl-NL\n"
@@ -13,12 +13,31 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid " . \common_Utils::toPHPVariableString($this->getDescription()) . "
+msgstr ""
+
+msgid " . \common_Utils::toPHPVariableString($this->getLabel()) . "
+msgstr ""
+
+#, tao-public
+msgid "Authoring"
+msgstr "Construeren"
+
+#, tao-public
+msgid "Combine a selection of items into tests."
+msgstr "Combineer een selectie van items in toetsen"
+
+#, tao-public
+msgid "Copy To"
+msgstr "Kopiëren naar"
+
 #, tao-public
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
-msgid "Edit subject"
-msgstr "Object bewerken"
+#, tao-public
+msgid "Duplicate"
+msgstr "Dupliceer"
 
 #, tao-public
 msgid "Export"
@@ -29,57 +48,78 @@ msgid "Import"
 msgstr "Importeer"
 
 msgid "Last updated on %2s"
-msgstr "Laatst bijgewerkt op %2s"
+msgstr "Laatst geupdated op %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr "Schema beheren"
+msgstr "Schema Beheren"
 
 #, tao-public
-msgid "Manage test takers"
-msgstr "Beheer kandidaten"
+msgid "Manage tests"
+msgstr "Beheer toetsen"
 
 #, tao-public
 msgid "Move"
-msgstr "Verplaats"
+msgstr "Verplaatsen"
 
 #, tao-public
 msgid "Move To"
-msgstr "Verplaats naar"
+msgstr "Verplaatsen naar"
 
 #, tao-public
 msgid "New class"
-msgstr "Nieuwe klasse"
+msgstr "Nieuw klasse"
 
 #, tao-public
-msgid "New test-taker"
-msgstr "Nieuwe kandidaat"
+msgid "New test"
+msgstr "Nieuwe toets"
+
+#, tao-public
+msgid "Preview"
+msgstr ""
 
 #, tao-public
 msgid "Properties"
 msgstr "Eigenschappen"
 
+msgid "Security plugins"
+msgstr "Veiligheidsplugins"
+
+msgid "Set of plugins with \'security\' category"
+msgstr ""
+
+msgid "Test Preview is not installed, please contact to your administrator."
+msgstr ""
+
+msgid "Test properties"
+msgstr "Toets eigenschappen"
+
+msgid "Test saved"
+msgstr "Toets opgeslagen"
+
+msgid "Test was successfully deleted."
+msgstr ""
+
 #, tao-public
-msgid "Record and manage test takers."
-msgstr "Vastleggen en beheren van kandidaten"
-
-msgid "Test taker saved"
-msgstr "Kandidaat opgeslagen"
-
-msgid "Test takers"
-msgstr "Kandidaat"
+msgid "Tests"
+msgstr "Toets"
 
 #, tao-public
-msgid "Test takers library"
-msgstr "Kandidaten bank"
+msgid "Tests library"
+msgstr "Toets bank "
 
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Kandidaten kunnen aan sets worden toegewezen in relatie tot de relevante assessment context (HRM, onderwijs, edumetrische monitoring, enz.)"
+msgid "The Test mode (sequencing, scoring, cumulating, etc.) and layout are also configured here."
+msgstr "De toets modus (volgorde, score, verzamelen, enz.) en lay-out worden ook hier geconfigureerd."
 
-#, tao-public
-msgid "Test-takers"
-msgstr "Kandidaten"
+msgid "The Tests module allows to combine a selection of Items to a Test."
+msgstr "The toets module laat u een toets maken door een selectie van items te combineren."
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "De kandidaten module geeft u de mogelijkheid om kandidaten toe te voegen en te beheren."
+msgid "Unable to delete test."
+msgstr ""
+
+msgid "Unable to process your request"
+msgstr ""
+
+msgid "You checked out this test %2s ago"
+msgstr "U heeft zich %2s geleden uit deze toets gecheckt."
 

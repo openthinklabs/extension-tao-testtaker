@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 2021.10\n"
-"PO-Revision-Date: 2021-10-22T12:02:52\n"
+"PO-Revision-Date: 2021-10-21T14:43:01\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nb-NO\n"
@@ -13,18 +13,34 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-msgid "Data import started"
-msgstr "Dataimport startet"
+msgid " . \common_Utils::toPHPVariableString($this->getDescription()) . "
+msgstr ""
 
-msgid "Data imported successfully"
-msgstr "Data importert"
+msgid " . \common_Utils::toPHPVariableString($this->getLabel()) . "
+msgstr ""
+
+msgid "%s has been deleted."
+msgstr "%s er slettet."
+
+#, tao-public
+msgid "Authoring"
+msgstr "Rediger"
+
+#, tao-public
+msgid "Combine a selection of items into tests."
+msgstr "Sett sammen et utvalg av oppgaver til prøver."
+
+#, tao-public
+msgid "Copy To"
+msgstr "Kopier til"
 
 #, tao-public
 msgid "Delete"
 msgstr "Slett"
 
-msgid "Edit subject"
-msgstr "Rediger emne"
+#, tao-public
+msgid "Duplicate"
+msgstr "Dupliser"
 
 #, tao-public
 msgid "Export"
@@ -42,8 +58,8 @@ msgid "Manage Schema"
 msgstr "Administrer egenskaper"
 
 #, tao-public
-msgid "Manage test takers"
-msgstr "Administrer elever"
+msgid "Manage tests"
+msgstr "Administrer oppgavesett"
 
 #, tao-public
 msgid "Move"
@@ -58,34 +74,52 @@ msgid "New class"
 msgstr "Ny mappe"
 
 #, tao-public
-msgid "New test-taker"
-msgstr "Ny elev"
+msgid "New test"
+msgstr "Ny prøve"
+
+#, tao-public
+msgid "Preview"
+msgstr "Forhåndsvis"
 
 #, tao-public
 msgid "Properties"
 msgstr "Egenskaper"
 
-#, tao-public
-msgid "Record and manage test takers."
-msgstr "Registrer og administrer elevene."
+msgid "Security plugins"
+msgstr "Sikkerhetsplugins"
 
-msgid "Test taker saved"
-msgstr "Elev lagret"
+msgid "Set of plugins with \'security\' category"
+msgstr "Sett med plugins med kategorien \'sikkerhet\'"
 
-msgid "Test takers"
-msgstr "Elever"
+msgid "Test Preview is not installed, please contact to your administrator."
+msgstr "Forhåndsvisning av oppgavesett er ikke installert. Ta kontakt med administrator."
 
-#, tao-public
-msgid "Test takers library"
-msgstr "Elevens bibliotek"
+msgid "Test properties"
+msgstr "Egenskaper for oppgavesett"
 
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Elevene kanbli tildelt oppgavesett i henhold til den relevante vurderingskonteksten (personaladministrasjon, utdanning, overvåking, etc.)."
+msgid "Test saved"
+msgstr "Oppgavesettet ble lagret"
 
 #, tao-public
-msgid "Test-takers"
-msgstr "Elever"
+msgid "Tests"
+msgstr "Oppgavesett"
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Elevmodulen lar deg registrere og administrere elever."
+#, tao-public
+msgid "Tests library"
+msgstr "Prøvebibliotek"
+
+msgid "The Test mode (sequencing, scoring, cumulating, etc.) and layout are also configured here."
+msgstr "Prøvemodus (sekvensering, skåring, kumulering, etc.) og layout er også konfigurert her."
+
+msgid "The Tests module allows to combine a selection of Items to a Test."
+msgstr "Prøvemodulen lar deg kombinere et utvalg av oppgaver til en prøve."
+
+msgid "Unable to delete %s."
+msgstr "Kan ikke slette %s."
+
+msgid "Unable to process your request"
+msgstr "Kan ikke behandle forespørselen din"
+
+msgid "You checked out this test %2s ago"
+msgstr "Du gjennomførte denne prøven for %2s siden"
 

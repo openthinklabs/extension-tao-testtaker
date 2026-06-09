@@ -15,86 +15,146 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015-2020 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
+ *
+ *
  */
 
-declare(strict_types=1);
+namespace oat\taoTests\scripts\update;
 
-namespace oat\taoTestTaker\scripts\update;
-
-use oat\generis\model\GenerisRdf;
+use oat\tao\scripts\update\OntologyUpdater;
+use oat\taoTests\models\runner\providers\TestProviderService;
+use oat\taoTests\scripts\install\RegisterTestPluginService;
 use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
-use oat\taoTestTaker\actions\Api;
-use oat\tao\model\user\import\UserCsvImporterFactory;
-use oat\taoTestTaker\models\TestTakerImporter;
+use oat\taoTests\models\runner\features\TestRunnerFeatureService;
+use oat\taoTests\models\runner\features\SecurityFeature;
+use oat\tao\model\ClientLibRegistry;
+use oat\tao\model\asset\AssetService;
 
 /**
- * Class Updater
- * @package oat\taoTestTaker\scripts\update
  * @deprecated use migrations instead. See https://github.com/oat-sa/generis/wiki/Tao-Update-Process
  */
 class Updater extends \common_ext_ExtensionUpdater
 {
     /**
-     * @inheritDoc
+     *
+     * @param string $initialVersion
+     * @return string $versionUpdatedTo
      */
     public function update($initialVersion)
     {
-        $this->skip('2.6', '3.0.0');
-        // fix anonymous access
-        if ($this->isVersion('3.0.0')) {
-            AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, Api::class));
-            $this->setVersion('3.0.1');
+        if ($this->isBetween('0', '2.7')) {
+            $this->setVersion('2.7');
         }
-        $this->skip('3.0.1', '3.4.0');
 
-        if ($this->isVersion('3.4.0')) {
+        // remove active prop
+        if ($this->isVersion('2.7')) {
+            $deprecatedProperty = new \core_kernel_classes_Property('http://www.tao.lu/Ontologies/TAOTest.rdf#active');
+            $iterator = new \core_kernel_classes_ResourceIterator([\taoTests_models_classes_TestsService::singleton()->getRootClass()]);
+            foreach ($iterator as $resource) {
+                $resource->removePropertyValues($deprecatedProperty);
+            }
+            $this->setVersion('2.7.1');
+        }
 
-            /** @var \common_ext_ExtensionsManager $extManager */
-            $extManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
-            $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
+        $this->skip('2.7.1', '2.23.0');
 
-            $taoTestTaker->setConfig('csvImporterCallbacks', [
-                'callbacks' => [
-                    '*' => ['trim'],
-                    GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
-                ],
-                'use_properties_for_event' => false
-            ]);
+        if ($this->isVersion('2.23.0')) {
+            //register test plugin service
+            $registerService = new RegisterTestPluginService();
+            $registerService->setServiceLocator($this->getServiceManager());
+            $registerService([]);
+
+            $this->setVersion('3.0.0');
+        }
+
+        $this->skip('3.0.0', '3.4.1');
+
+        if ($this->isVersion('3.4.1')) {
+            //register test runner feature service
+            //$registerService = new RegisterTestRunnerFeatureService();
+            //$registerService([]);
 
             $this->setVersion('3.5.0');
         }
 
-        $this->skip('3.5.0', '3.6.0');
+        $this->skip('3.5.0', '3.5.1');
 
-        if ($this->isVersion('3.6.0')) {
-            /** @var UserCsvImporterFactory $importerFactory */
-            $importerFactory = $this->getServiceManager()->get(UserCsvImporterFactory::SERVICE_ID);
-            $typeOptions = $importerFactory->getOption(UserCsvImporterFactory::OPTION_MAPPERS);
-            $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = [
-                UserCsvImporterFactory::OPTION_MAPPERS_IMPORTER => new TestTakerImporter()
-            ];
-            $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
-            $this->getServiceManager()->register(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
-
-            $this->setVersion('3.7.0');
+        if ($this->isVersion('3.5.1')) {
+            OntologyUpdater::syncModels();
+            $this->setVersion('3.6.0');
         }
 
-        $this->skip('3.7.0', '3.10.2');
+        $this->skip('3.6.0', '6.0.0');
 
-        if ($this->isVersion('3.10.2')) {
-            /** @var \common_ext_ExtensionsManager $extensionManager */
-            $extensionManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
-            $extension = $extensionManager->getExtensionById('taoTestTaker');
-            $config = $extension->getConfig('csvImporterCallbacks');
-            $config['callbacks'][GenerisRdf::PROPERTY_USER_UILG] = ['\tao_models_classes_LanguageService::filterLanguage'];
-            $extension->setConfig('csvImporterCallbacks', $config);
-            $this->setVersion('3.11.0');
+        // remove anonymous access
+        if ($this->isVersion('6.0.0')) {
+            AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, \taoTests_actions_RestTests::class));
+            $this->setVersion('6.0.1');
         }
 
-        $this->skip('3.11.0', '7.6.0');
+        $this->skip('6.0.1', '6.10.0');
+
+        if ($this->isVersion('6.10.0')) {
+            //register test plugin service
+            $serviceManager = $this->getServiceManager();
+            $testProviderService = new TestProviderService();
+            $serviceManager->register(TestProviderService::SERVICE_ID, $testProviderService);
+
+            $this->setVersion('6.11.0');
+        }
+
+        $this->skip('6.11.0', '7.3.0');
+
+        if ($this->isVersion('7.3.0')) {
+            AclProxy::applyRule(new AccessRule('grant', TaoRoles::REST_PUBLISHER, ['ext' => 'taoTests', 'mod' => 'RestTests']));
+            $this->setVersion('7.4.0');
+        }
+
+        $this->skip('7.4.0', '7.7.1');
+
+        if ($this->isVersion('7.7.1')) {
+            if (!$this->getServiceManager()->has(TestRunnerFeatureService::SERVICE_ID)) {
+                $featureService = new TestRunnerFeatureService([
+                    TestRunnerFeatureService::OPTION_AVAILABLE => []
+                ]);
+                $this->getServiceManager()->register(TestRunnerFeatureService::SERVICE_ID, $featureService);
+            }
+            $this->setVersion('7.7.2');
+        }
+
+        $this->skip('7.7.2', '7.7.3');
+
+        if ($this->isVersion('7.7.3')) {
+            $featureService = $this->getServiceManager()->get(TestRunnerFeatureService::class);
+            $features = $featureService->getAll(false);
+            if (isset($features[SecurityFeature::FEATURE_ID]) && get_class($features[SecurityFeature::FEATURE_ID]) === SecurityFeature::class) {
+                $featureService->unregister(SecurityFeature::FEATURE_ID);
+                $this->getServiceManager()->register(TestRunnerFeatureService::SERVICE_ID, $featureService);
+            }
+            $this->setVersion('7.8.0');
+        }
+
+        $this->skip('7.8.0', '12.1.0');
+
+        if ($this->isVersion('12.1.0')) {
+            $assetService = $this->getServiceManager()->get(AssetService::SERVICE_ID);
+            $taoTestRunnerDir = $assetService->getJsBaseWww('taoTests') . 'node_modules/@oat-sa/tao-test-runner/dist';
+            $clientLibRegistry = ClientLibRegistry::getRegistry();
+            $clientLibRegistry->register('taoTests/runner', $taoTestRunnerDir);
+            $this->setVersion('13.0.0');
+        }
+
+        $this->skip('13.0.0', '13.4.4');
+
+        if ($this->isVersion('13.4.4')) {
+            OntologyUpdater::syncModels();
+            $this->setVersion('13.4.5');
+        }
+
+        $this->skip('13.4.5', '14.1.1');
         
         //Updater files are deprecated. Please use migrations.
         //See: https://github.com/oat-sa/generis/wiki/Tao-Update-Process
